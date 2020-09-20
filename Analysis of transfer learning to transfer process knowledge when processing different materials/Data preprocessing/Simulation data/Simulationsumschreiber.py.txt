@@ -1,0 +1,41 @@
+﻿# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 14 16:20:28 2018
+
+@author: Sebastian
+"""
+x =1 
+y =12                        # Anzahl der Dateien
+while x <= y:      
+    str_x=str(x)
+    str_y=str(y)
+    
+    if x < 10:
+        Eingangspfad = "Lego Simulation_00" + str_x + "_Ergebnis-Übersicht.txt"     # An Dateinamen anpassen Ergebnis-Übersicht
+        Ausgangspfad = "DOE2_00" + str_x +".txt"                                                    # An Dateinamen anpassen DOE-Datei
+    else:
+        Eingangspfad = "Lego Simulation_0" + str_x + "_Ergebnis-Übersicht.txt"      # An Dateinamen anpassen Ergebnis-Übersicht
+        Ausgangspfad = "DOE2_0" + str_x +".txt"                                                     # An Dateinamen anpassen DOE-Datei
+    Eingang = open(Eingangspfad, 'r')
+    line_num = 0
+    search_phrase = "Temperatur bei Erreichen"
+    for line in Eingang.readlines():
+        line_num += 1
+        if line.find(search_phrase) >= 0:
+            i = line_num
+            print(line_num)
+    Eingang.close
+    Eingang2 = open(Eingangspfad, 'r')
+    lines = Eingang2.readlines()
+    print (lines[i-4])
+    GanzeZeile = lines[i-4]
+    Gewicht = GanzeZeile[10:20]
+    print (Gewicht)
+    Eingang2.close
+    NeueZeile ="  3350      0        " + Gewicht + "                 0                 0                 0 Bauteilgewicht [g]"
+    print (NeueZeile)
+    Ausgang = open(Ausgangspfad,'a')
+    Ausgang.writelines(NeueZeile)
+    Ausgang.close
+    print ("Datei " + str_x + " von " + str_y + " abgeschlossen")
+    x += 1
