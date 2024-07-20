@@ -1,5 +1,3 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/lifting-from-the-deep-convolutional-3d-pose/3d-human-pose-estimation-on-human36m)](https://paperswithcode.com/sota/3d-human-pose-estimation-on-human36m?p=lifting-from-the-deep-convolutional-3d-pose)
-
 # Transfer learning with artificial neural networks between injection molding processes and different polymer materials
 
 ## Abstract
